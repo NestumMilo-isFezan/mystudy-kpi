@@ -25,3 +25,7 @@ function hideSidebar(){
         sidebar.style.display = 'none';
     }, 500);
 }
+/*
+function LoadOnce() { 
+window.location.reload(); 
+} */

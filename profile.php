@@ -1,10 +1,26 @@
 <?php
+//Just to optimize code...
+function getImagePath($image) {
+    $imagedir = 'uploads/profilepic/' .$image;
+    if (file_exists($imagedir . '.jpg')) {
+        return $imagedir . '.jpg';
+    }
+    else if (file_exists($imagedir . '.png')) {
+        return $imagedir . '.png';
+    }
+    else{
+        return null;
+    }
+}
+
 $pagetitle = 'Profile';
 include('config/config.php');
 include 'template/header.php'
+
+
 ?>
 
-<body>
+<body onload="LoadOnce()">
     <div class="main-container">
         <?php
             // Primary Header
@@ -45,7 +61,7 @@ include 'template/header.php'
             <div class="profile-container">
                 <div class="profile-section">
                     <?php
-                    if (file_exists('uploads/profilepic/'. $matricNo . '.jpg')) {
+                    /*if (file_exists('uploads/profilepic/'. $matricNo . '.jpg')) {
                         echo'<img class="pfp-img" src="uploads/profilepic/'.$matricNo.'.jpg"/>';
 
                     }
@@ -54,9 +70,17 @@ include 'template/header.php'
                         
                     }
                     else{
-                        echo'<img class="pfp-img" style="border:0;" src="src/img/user_icon.png"/>';
+                        echo'<img class="pfp-img" src="src/img/user_icon.png"/>';
                     
+                    }*/
+                    $picpath = getImagePath($matricNo);
+                    if ($picpath !== null){
+                        echo'<img class="pfp-img" src="' . $picpath .'"/>';
                     }
+                    else{
+                        echo'<img class="pfp-img" src="src/img/user_icon.png"/>';
+                    }
+
                     ?>
                     <div class="pfp-namewithmotto">
                         <?php 
