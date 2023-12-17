@@ -1,0 +1,587 @@
+*{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+* a{
+    text-decoration: none;
+}
+
+body{
+    margin: auto;
+    background-color: #292929;
+}
+
+.main-container{
+    min-height: 100dvh;
+
+    display: grid;
+    grid-template-rows: 
+        auto
+        50px
+        1fr
+        20px;
+}
+
+.main-content{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    padding: 10px;
+}
+
+/*Scrollbar table*/
+body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #92929235;
+}
+
+
+/*
+=========================================
+Primary Header - CSS
+=========================================
+*/
+
+.primary-header{
+    display: grid;
+    height: 120px;
+    grid-template-areas: "stack";
+    place-items: center;
+    justify-content: center;
+    align-content: start;
+
+    padding: 2rem 0;
+    background-image: url("../src/img/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.primary-header__title{
+    background-color: transparent;
+}
+
+.primary-header__title h1{
+    font-family: "Lilita One";
+    font-size: 40px;
+}
+
+.primary-header__title p em{
+    font-family: "Poppins";
+    font-size: 18px;
+}
+
+.primary-header > *{
+    grid-area: stack;
+}
+
+
+/*
+===================================
+Navbar - CSS
+===================================
+*/
+/*.topnav{
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 13px 15px;
+    text-decoration: none;
+}
+
+.topnav a:hover{
+    background-color: #ddd;
+    color: #000000;
+}
+
+.topnav a.active {
+	background-color: #c90e5c;
+	color: white;
+}
+
+.topnav .icon {
+	display: none;
+}
+
+.topnav .logout-nav{
+    background-color:#c90e37;
+    float: right
+}
+*/
+
+/*
+=============================================
+Navbar v2.0 - CSS
+=============================================
+*/
+nav{
+    background-color: #333;
+    box-shadow: 3px 3px 5px #00000010;
+}
+
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li{
+    height: 50px;
+}
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+nav a:hover{
+    background-color: #f2f2f210;
+}
+
+nav li:first-child{
+    margin-right: auto;
+}
+nav i{
+    font-size: 18px;
+}
+
+nav #reg-button{
+    background-color: #c90e5c;
+    color: #f2f2f2;
+}
+
+nav #logout-button{
+    background-color: #c90e1b;
+    color: #f2f2f2;
+}
+
+nav #login-button{
+    background-color: #0e81c9;
+    color: #f2f2f2;
+}
+
+nav #title{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 26px;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: #33333330;
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 10px #00000010;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+
+    /* Animation */
+    transform: translate(100%, 0);
+    transition: all ease-in-out 350ms;
+}
+
+.sidebar li{
+    width: 100%;
+}
+
+.sidebar a{
+    width: 100%;
+}
+
+.menu-button{
+    display: none;
+}
+
+/*
+=============================================
+Footer - CSS
+=============================================
+*/
+.author-footer p{
+    font-family: "Lilita One", sans-serif;
+    font-size: 16px;
+    color: #ddd;
+    background-color: #c90e5c;
+    padding: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+
+/*
+=============================================
+Profile - CSS
+=============================================
+*/
+.profile-container{
+    background-color: #1b1a1a80;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 25px;
+
+    display: grid;
+    min-height: 100dvh;
+    width: 100%;
+
+    grid-template-rows:
+    auto
+    1fr;
+    grid-template-areas: 
+    'section'
+    'biodata';
+    gap: 5px;
+}
+
+.profile-section{
+    display: flex;
+    grid-area: section;
+}
+
+.profile-section .pfp-img{
+    width: 220px;
+    height: 220px;
+    border-radius: 45px;
+    object-fit: cover;
+    justify-self: center;
+    border: 2px solid #f2f2f2;
+}
+
+.profile-section .pfp-namewithmotto{
+    display: grid;
+    margin-left: 15px;
+    margin-bottom: auto;
+}
+
+.pfp-namewithmotto p{
+    align-self: start;
+}
+
+.pfp-namewithmotto h1{
+    align-self: end;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 44px;
+}
+
+
+.profile-container .pfp-biodata{
+    grid-area: biodata;
+    padding-top: 10px;
+    justify-items: stretch;
+    align-content: start;
+}
+
+/* Biodata Table */
+.profile-table{
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    min-height: 75%;
+    text-align: left;
+    gap: 10px;
+}
+
+.profile-table td, .profile-table th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+    border: 1px solid #616161;
+    padding: 8px;
+}
+
+.profile-table tr:nth-child(even){background-color: #f5d3e3;}
+.profile-table tr:nth-child(odd){background-color: #f7dce9;}
+.profile-table tr:hover {background-color: #c8b4ba;}
+
+.profile-table .profile-header{
+    background-color: #4d142e;
+    font-size: 26px;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    text-align: center;
+    color: white;
+}
+
+.profile-table td{
+    color: #000000;
+}
+
+.profile-table th{
+    color: #c90e5c;
+}
+
+/*
+=============================================
+Challenge Table - CSS
+=============================================
+*/
+.challenge-content table, .challenge-content th, .challenge-content td{
+    padding: 1rem;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.challenge-content{
+    width: 82vw;
+    height: 90vh;
+    background-color: #1b1a1a80;
+    backdrop-filter: blur(7px);
+    box-shadow: 3px 3px 5px #00000010;
+    border-radius: .8rem;
+
+    overflow: hidden;
+}
+
+.challenge-content table{
+    width: 100%;
+}
+
+.challenge-content .table__header{
+    width: 100%;
+    height: 10%;
+    background-color: #15151540;
+    padding: .8rem 1rem;
+    font-size: 16px;
+}
+
+.challenge-content .table__body{
+    width: 95%;
+    max-height: calc(89% - .8rem);
+    background-color: #f8b4da60;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+}
+
+.challenge-content thead th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #c90e5c;
+}
+
+.challenge-content tbody tr:nth-child(even){
+    background-color: #c8b4ba40;
+}
+.challenge-content tbody tr:hover{
+    background-color: #e392aacb;
+}
+
+/*Scrollbar table*/
+.table__body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.table__body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #c90e5c40;
+    visibility: hidden;
+}
+.table__body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+/*
+=============================================
+Responsive Web - width = 900px - CSS
+=============================================
+*/
+@media(max-width: 900px){
+    /*Sidebar*/
+    .hideOnMobile{
+        display: none;
+    }
+
+    .menu-button{
+        display: block;
+    }
+    
+
+    /*Profile*/
+    .profile-container{
+        margin: 20px 20px;
+        margin-top: 10px;
+        padding: 20px;
+        border-radius: 25px;
+    
+        display: grid;
+        min-height: 80dvh;
+        width: 100%;
+    
+        grid-template-rows:
+        0.25fr
+        auto;
+        gap: 5px;
+    }
+
+    .profile-section{
+        display: grid;
+        grid-template-rows: 1fr auto;
+    }
+    .profile-section .pfp-img{
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+        justify-self: center;
+        border: 2px solid #f2f2f2;
+        margin-bottom: 10px;
+    }
+    
+    .profile-section .pfp-namewithmotto{
+        display: grid;
+        margin-left: 0;
+        margin-bottom: 11px;
+    }
+
+    .pfp-namewithmotto p{
+        align-self: start;
+        text-align: center;
+        font-size: 15px;
+    }
+    
+    .pfp-namewithmotto h1{
+        align-self: start;
+        font-family: "Lilita One", sans-serif;
+        font-weight: 100;
+        font-size: 28px;
+        text-align: center;
+    }
+    /*Profile Table*/
+    .profile-container .pfp-biodata{
+        margin: 5px 10px;
+        padding-top: 5px;
+        align-content: start;
+    }
+
+    .profile-table{
+        border-collapse: collapse;
+        width: 100%;
+        min-height: 75%;
+        text-align: left;
+        gap: 10px;
+    }
+
+    .profile-table td, .profile-table th{
+        padding-top: 7px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        font-size: 16px;
+    }
+
+    .profile-table .profile-header{
+        font-size: 20px;
+    }
+
+    /*Primary Header*/
+    .primary-header__title h1{
+        font-size: 35px;
+    }
+    
+    .primary-header__title p em{
+        font-size: 16px;
+    }
+
+    /*Table*/
+    .challenge-content td:not(:first-of-type){
+        min-width: 12.1rem;
+    }
+}
+
+@media(max-width: 500px){
+    /*Sidebar*/
+    .sidebar{
+        width: 100%;
+    }
+
+    /*Profile Table*/
+    .profile-container .pfp-biodata{
+        margin: 0;
+        padding-top: 5px;
+        align-content: start;
+    }
+
+    .profile-table{
+        border-collapse: collapse;
+        width: 100%;
+        min-height: 75%;
+        text-align: left;
+        gap: 5px;
+    }
+
+    .profile-table td, .profile-table th{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        font-size: 11px;
+    }
+
+    .profile-table .profile-header{
+        font-size: 16px;
+    }
+
+    /*Profile*/
+    .profile-section .pfp-namewithmotto{
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .pfp-namewithmotto p{
+        align-self: start;
+        text-align: center;
+        font-size: 11px;
+    }
+    
+    .pfp-namewithmotto h1{
+        align-self: start;
+        font-family: "Lilita One", sans-serif;
+        font-weight: 100;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .profile-section .pfp-img{
+        width: 120px;
+        height: 120px;
+        border-radius: 100px;
+        justify-self: center;
+        border: 2px solid #f2f2f2;
+        margin-bottom: 5px;
+    }
+    
+    /*Primary Header*/
+    .primary-header__title h1{
+        font-size: 30px;
+    }
+    
+    .primary-header__title p em{
+        font-size: 12px;
+    }
+}

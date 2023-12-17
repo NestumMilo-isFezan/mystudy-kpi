@@ -1,0 +1,520 @@
+*{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+* a{
+    text-decoration: none;
+}
+
+body{
+    margin: auto;
+    background-color: #292929;
+}
+
+.main-container{
+    min-height: 100dvh;
+
+    display: grid;
+    grid-template-rows: 
+        auto
+        auto
+        1fr
+        20px;
+}
+
+.main-content{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    padding: 10px;
+}
+
+/*Scrollbar table*/
+body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #92929235;
+}
+/*
+=========================================
+Primary Header - CSS
+=========================================
+*/
+.primary-header{
+    display: grid;
+    grid-template-areas: "stack";
+    place-items: center;
+    justify-content: center;
+    align-content: start;
+
+    padding: 2rem 0;
+    background-image: url("../src/img/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.primary-header__title{
+    background-color: transparent;
+}
+
+.primary-header__title h1{
+    font-family: "Lilita One";
+    font-size: 50px;
+}
+
+.primary-header__title p em{
+    font-family: "Poppins";
+    font-size: 18px;
+}
+
+.primary-header > *{
+    grid-area: stack;
+}
+
+/*
+=============================================
+Footer - CSS
+=============================================
+*/
+.author-footer p{
+    font-family: "Lilita One", sans-serif;
+    font-size: 16px;
+    color: #ddd;
+    background-color: #c90e5c;
+    padding: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/*
+=============================================
+Action Title - CSS
+=============================================
+*/
+.action-title h1{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 32px;
+    text-align: center;
+    margin: auto;
+    background-color: #0e5fc9;
+}
+
+/*
+=============================================
+Login Form - CSS
+=============================================
+*/
+.login-container{
+    background-color: #1b1a1a80;
+    padding: 20px;
+    min-width: auto;
+    width: 650px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-radius: 25px;
+
+    display: grid;
+    grid-template-rows:
+    auto
+    auto
+    auto
+    auto
+    auto
+    auto
+    ;
+    gap: 15px;
+    justify-content: stretch;
+}
+
+.login-container .user-icon{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.login-container .form-group{
+    margin: auto;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+}
+
+.form-group input{
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 15px;
+
+    color: #c90e5c;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+}
+.form-group input:focus{
+    border: 5px solid #c90e5c;
+}
+.form-group label{
+    padding-top: 10px;
+    margin-left: 15px;
+}
+
+.login-container .rememberme{
+    margin: auto;
+    padding: 10px;
+    align-self: center;
+    justify-self: center;
+}
+
+.login-container .submit-group{
+    grid-row: 5;
+    margin: auto;
+
+    display: flex;
+}
+
+.submit-group .submitbutton{
+    margin: auto;
+    width: 200px;
+    height: 50px;
+
+    background-color: #0e5fc9;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+
+    border-radius: 25px;
+    border: #292929;
+}
+
+.login-container .register-forgot{
+    margin: 20px;
+    grid-row: 6;
+
+    display: flex;
+    justify-content: center;
+}
+
+/*
+=============================================
+Register Form - CSS
+=============================================
+*/
+.register-container{
+    background-color: #1b1a1a80;
+    padding: 20px;
+    min-width: auto;
+    width: 650px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-radius: 25px;
+
+    display: grid;
+    grid-template-rows:
+    auto
+    auto
+    auto
+    auto
+    auto
+    auto
+    ;
+    gap: 15px;
+    justify-content: stretch;
+}
+
+.register-container .user-icon{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.register-container .form-group{
+    margin: auto;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+}
+
+.form-group input{
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 15px;
+
+    color: #c90e5c;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+}
+.form-group input:focus{
+    border: 5px solid #c90e5c;
+}
+.form-group label{
+    padding-top: 10px;
+    margin-left: 15px;
+}
+
+.register-container .submit-group{
+    grid-row: 5;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.submit-group .submitbutton{
+    margin: auto;
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+
+    background-color: #0e5fc9;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+
+    border-radius: 25px;
+    border: #292929;
+    cursor: pointer;
+}
+
+.submit-group .cancelbutton{
+    margin: auto;
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+
+    background-color: #c90e37;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+
+    border-radius: 25px;
+    border: #292929;
+    cursor: pointer;
+}
+
+/*
+================================================
+Profile Edit - CSS
+================================================
+*/
+/* PIC SECTION*/
+.profile-edit-container{
+    background-color: #151515a7;
+    padding: 25px;
+    border-radius: 30px;
+    margin: 5px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+}
+
+.pic-container{
+    margin: auto;
+    background-color: #22222280;
+    padding: 25px;
+    border-radius: 30px;
+    margin-right: 10px;
+    width: 40vh;
+    height: 50vh;
+
+}
+.pic-section{
+    margin-top: 10px;
+    display: grid;
+    grid-template-areas:
+    'pic'
+    'update';
+}
+
+.pic-section #imgpreview{
+    margin-bottom: 20px;
+    border: 4px solid white;
+    grid-area: pic;
+    width: 150px;
+    height: 150px;
+    border-radius: 40px;
+    object-fit: cover;
+    align-self: center;
+    justify-self: center;
+    overflow: hidden;
+}
+
+.updateimg-form{
+    width: 75%;
+    justify-self: center;
+    grid-area: update;
+    display: grid;
+    row-gap: 5px;
+}
+
+.yesno-update{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+}
+.confirmation{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+}
+
+
+/*FORM SECTION*/
+.form-section{
+    background-color: #22222280;
+    padding: 25px;
+    border-radius: 30px;
+    margin-right: 10px;
+    width: 75vh;
+    height: 50vh;
+    overflow: hidden;
+}
+.form-section .profile-form{
+    margin: 0;
+    padding: 5px;
+    padding-left: -5px;
+    padding-right: 5px;
+    display: grid;
+    row-gap: 15px;
+    width: 100%;
+    height: 95%;
+
+    overflow: auto;
+}
+
+.profile-form::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.profile-form::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #2f75d773;
+    visibility: hidden;
+}
+
+.profile-form:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+.merge-formsection{
+    display: grid;
+    margin: 0;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+}
+
+.formsection{
+    display: grid;
+    padding-right: 5px;
+    grid-template-rows: auto auto;
+}
+.form-section1{
+    display: grid;
+}
+
+.form-section input{
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 15px;
+
+    color: #c90e5c;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+}
+
+.form-section input:focus{
+    border-color: #0e5fc9;
+}
+
+.form-section select{
+    height: 37px;
+    border-radius: 15px;
+    padding-left: 15px;
+    
+    color: #0e5fc9;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+}
+
+.form-section textarea{
+    height: 85px;
+    border-radius: 15px;
+    padding-left: 15px;
+    resize: none;
+
+    color: #c90e5c;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+
+}
+
+.profile-edit-container button{
+    margin: 0;
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+
+    border-radius: 15px;
+    border: #292929;
+    cursor: pointer;
+
+}
+
+.profile-edit-container .update-button{
+    background-color: #13db59;
+}
+.profile-edit-container .cancel-button{
+    background-color: #db132e;
+}
+.confirmation{
+    display: none;
+}
+
+.profile-edit-container .edit-img{
+    background-color: #13dbb6;
+    margin-bottom: 20px;
+}
+.profile-edit-container .browse-button{
+    margin: auto;
+    padding:10px 0px;
+    width: 100%;
+    text-align: center;
+
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+
+    border-radius: 15px;
+    border: #292929;
+    cursor: pointer;
+    background-color: #1370db;
+    display: none;
+}
+#selectimg{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.profile-edit-container  i{
+    font-size: 24px;
+}
