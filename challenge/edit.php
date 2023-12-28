@@ -9,6 +9,9 @@ $challenge =" ";
 $plan = "";
 $remark = "";
 $img = "";
+if(!isset($_SESSION["UID"])){
+    header("location:../index.php"); 
+}
 
 if(isset($_GET["id"]) && $_GET["id"] != ""){
     $sql = "SELECT * FROM challenge WHERE ch_id=". $_GET["id"];

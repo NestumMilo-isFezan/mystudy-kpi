@@ -19,6 +19,9 @@ $uploadOk = 0;
 $imageFileType = "";
 $uploadfileName = "";
 
+if(!isset($_SESSION["UID"])){
+    header("location:../index.php"); 
+}
 //this block is called when button Submit is clicked
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //values for add or edit

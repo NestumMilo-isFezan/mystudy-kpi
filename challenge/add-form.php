@@ -1,6 +1,9 @@
 <?php
 include '../template/header1.php';
 include('../config/config.php');
+if(!isset($_SESSION["UID"])){
+    header("location:../index.php"); 
+}
 ?>
 
 <body>

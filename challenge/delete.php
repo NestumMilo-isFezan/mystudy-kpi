@@ -3,7 +3,9 @@ include('../config/config.php');
 
 // Generate template
 include '../template/header2.php';
-
+if(!isset($_SESSION["UID"])){
+    header("location:../index.php"); 
+}
 //this action called when Delete link is clicked
 if(isset($_GET["id"]) && $_GET["id"] != ""){
     $id = $_GET["id"];
