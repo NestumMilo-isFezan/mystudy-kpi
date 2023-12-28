@@ -20,7 +20,7 @@ include 'template/header.php'
 
 ?>
 
-<body onload="LoadOnce()">
+<body>
     <div class="main-container">
         <?php
             // Primary Header

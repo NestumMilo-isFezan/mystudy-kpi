@@ -103,10 +103,18 @@ Action Title - CSS
 .action-title h1{
     font-family: "Lilita One", sans-serif;
     font-weight: 100;
-    font-size: 32px;
+    font-size: 24px;
     text-align: center;
     margin: auto;
     background-color: #0e5fc9;
+}
+
+.action-title p{
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: #0e81c9ea;
 }
 
 /*
@@ -506,6 +514,7 @@ Profile Edit - CSS
     background-color: #1370db;
     display: none;
 }
+
 #selectimg{
     width: 0.1px;
 	height: 0.1px;
@@ -517,4 +526,172 @@ Profile Edit - CSS
 
 .profile-edit-container  i{
     font-size: 24px;
+}
+
+/*
+==========================================
+Challenge Form - CSS
+==========================================
+*/
+.challenge-container{
+    background-color: #22222280;
+    padding: 25px;
+    border-radius: 30px;
+    margin-right: 10px;
+    width: 95vh;
+    height: 100vh;
+    overflow: hidden;
+}
+.challenge-container .challenge-form{
+    margin: 0;
+    padding: 5px;
+    padding-left: -5px;
+    padding-right: 5px;
+    display: grid;
+    row-gap: 15px;
+    width: 100%;
+    height: 95%;
+
+    overflow: auto;
+}
+
+.challenge-form::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.challenge-form::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #2f75d773;
+    visibility: hidden;
+}
+
+.challenge-form:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+.merge-formsection{
+    display: grid;
+    margin: 0;
+    padding: 0 5px;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+.challenge-container .formsection1{
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.challenge-container input{
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 15px;
+
+    color: #c90e5c;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+}
+
+.challenge-container input:focus{
+    border-color: #0e5fc9;
+}
+
+.challenge-container select{
+    width: 150px;
+    height: 37px;
+    border-radius: 15px;
+    padding-left: 15px;
+    
+    color: #0e5fc9;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+}
+
+.challenge-container textarea{
+    height: 85px;
+    border-radius: 15px;
+    padding-left: 15px;
+    resize: none;
+
+    color: #c90e5c;
+    border: 2px solid #0e5fc9;
+    background-color: #3e3c3c80;
+
+}
+
+.challenge-container button{
+    margin: 0;
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+
+    border-radius: 15px;
+    border: #292929;
+    cursor: pointer;
+
+}
+
+.challenge-container .update-button{
+    background-color: #13db59;
+}
+.challenge-container .cancel-button{
+    background-color: #db132e;
+}
+
+.challenge-container .delete-button{
+    background-color: #db132e;
+    width: auto;
+}
+.indicate::after{
+    content: " *";
+    color: #c90e37;
+}
+
+.formsection #filepreview{
+    margin: auto;
+    margin-bottom: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    object-fit: cover;
+    align-self: center;
+    justify-self: center;
+    overflow: hidden;
+}
+
+.challenge-container .browse-button{
+    margin: auto;
+    padding:10px 0px;
+    width: 100%;
+    text-align: center;
+
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+
+    border-radius: 15px;
+    border: #292929;
+    cursor: pointer;
+    background-color: #1370db;
+}
+
+#fileToUpload{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.edit-img{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 30px;
 }
