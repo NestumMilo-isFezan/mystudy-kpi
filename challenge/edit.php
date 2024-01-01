@@ -37,11 +37,6 @@ mysqli_close($conn);
 
 <body>
     <div class="main-container">
-        <?php
-            // Primary Header
-            include '../template/titlebar.php';
-
-        ?>
         <div class="action-title">
             <h1>Edit Challenge and Plan</h1>
             <p class="indicate"><em>Required field with mark</em></p>
@@ -63,7 +58,21 @@ mysqli_close($conn);
                         </div>
                         <div class="formsection1">
                             <label for="year"><p class="indicate"><b>Year</b></p></label>
-                            <input type="text" name="year" id="year" required value="<?= $year?>"/>
+                            <select id="year" name="year" required>
+                                <option value="">&nbsp;</option>
+                                <?php
+                                    $yearpart = explode('/',$_SESSION['intake']);
+                                    $year_part1 = intval($yearpart[0]);
+                                    $year_part2 = intval($yearpart[1]);
+
+                                    for ($i=0; $i<4; $i++){
+                                        $string_year = $year_part1+$i . '/' . $year_part2+$i; 
+                                ?>
+                                    <option <?php echo($year == $string_year) ? 'selected' : ''?>> <?= $string_year?></option>
+                                <?php    
+                                    }
+                                ?>                      
+                            </select>
                         </div>
                     </div>
 
@@ -100,7 +109,7 @@ mysqli_close($conn);
 
                     <div class="yesno-update">
                         <button type="submit" name="submitform" class="update-button"><i class='bx bxs-check-circle'></i></button>
-                        <button name="cancelform" class="cancel-button"><i class='bx bxs-x-circle'></i></button>
+                        <button name="cancelform" class="cancel-button" onClick="window.location.href='../challenge.php';"><i class='bx bxs-x-circle'></i></button>
                     </div>
                 </form>
             </div>

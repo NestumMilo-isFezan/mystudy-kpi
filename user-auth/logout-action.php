@@ -4,6 +4,8 @@ if(isset($_SESSION['UID'])){
     unset($_SESSION['UID']);
     unset($_SESSION['matricNo']);
     unset($_SESSION['loggedin_time']);
+    unset($_SESSION['$intake']);
+    unset($_SESSION['username']);
 
     echo'
     <img class="status-icon" src="../src/img/success.png"/>

@@ -40,16 +40,16 @@ echo'
     <ul class="sidebar">
         <li onclick="hideSidebar()"><a href="#"><i class="bx bx-x" ></i></a></li>';
         echo'<li'; if ($pagetitle == 'Profile'){ echo' id="active-page"><a href="profile.php">Profile</a></li>';} else {echo'><a href="profile.php">Profile</a></li>';}
-        echo'<li'; if ($pagetitle == 'Manage KPI'){ echo' id="active-page"><a href="#">Manage KPI</a></li>';} else {echo'><a href="#">Manage KPI</a></li>';}
-        echo'<li'; if ($pagetitle == 'List of Activities'){ echo' id="active-page"><a href="#">Activity</a></li>';} else {echo'><a href="#">Activity</a></li>';}
+        echo'<li'; if ($pagetitle == 'Manage KPI'){ echo' id="active-page"><a href="managekpi.php">Manage KPI</a></li>';} else {echo'><a href="managekpi.php">Manage KPI</a></li>';}
+        echo'<li'; if ($pagetitle == 'List of Activities'){ echo' id="active-page"><a href="activity.php">Activity</a></li>';} else {echo'><a href="activity.php">Activity</a></li>';}
         echo'<li'; if ($pagetitle == 'Challenges and Plans'){ echo' id="active-page"><a href="challenge.php">Challenge</a></li>';} else {echo'><a href="challenge.php">Challenge</a></li>';}
         echo'<li><a href="user-auth/logout-action.php">Logout</a></li>
     </ul>
     <ul>
         <li class="hideOnMobile"><a href="index.php" id="title"><i class="bx bxs-book" ></i> | My Study KPI</a></li>';
         echo'<li class="hideOnMobile"'; if ($pagetitle == 'Profile'){ echo'id="active-page"><a href="profile.php">Profile</a></li>';} else{echo '><a href="profile.php">Profile</a></li>';}
-        echo'<li class="hideOnMobile"'; if ($pagetitle == 'Manage KPI'){ echo'id="active-page"><a href="#">Manage</a></li>';} else{echo '><a href="#">Manage</a></li>';}
-        echo'<li class="hideOnMobile"'; if ($pagetitle == 'List of Activities'){ echo'id="active-page"><a href="#">Activity</a></li>';} else{echo '><a href="#">Activity</a></li>';}
+        echo'<li class="hideOnMobile"'; if ($pagetitle == 'Manage KPI'){ echo'id="active-page"><a href="managekpi.php">Manage</a></li>';} else{echo '><a href="managekpi.php">Manage</a></li>';}
+        echo'<li class="hideOnMobile"'; if ($pagetitle == 'List of Activities'){ echo'id="active-page"><a href="activity.php">Activity</a></li>';} else{echo '><a href="activity.php">Activity</a></li>';}
         echo'<li class="hideOnMobile"'; if ($pagetitle == 'Challenges and Plans'){ echo'id="active-page"><a href="challenge.php">Challenge</a></li>';} else{echo '><a href="challenge.php">Challenge</a></li>';}
         echo'<li class="hideOnMobile" id="logout-button"><a href="user-auth/logout-action.php"><i class="bx bxs-log-out"></i>&nbsp;Logout</a></li>
         <li class="menu-button" onclick="showSidebar()"><a href="#"><i class="bx bx-menu" ></i></a></li>

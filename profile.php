@@ -1,17 +1,4 @@
 <?php
-//Just to optimize code...
-function getImagePath($image) {
-    $imagedir = 'uploads/profilepic/' .$image;
-    if (file_exists($imagedir . '.jpg')) {
-        return $imagedir . '.jpg';
-    }
-    else if (file_exists($imagedir . '.png')) {
-        return $imagedir . '.png';
-    }
-    else{
-        return null;
-    }
-}
 
 $pagetitle = 'Profile';
 include('config/config.php');
@@ -23,15 +10,12 @@ include 'template/header.php'
 <body>
     <div class="main-container">
         <?php
-            // Primary Header
-            include 'template/titlebar.php';
-            
             // Check if the seesion is running,
             if (isset($_SESSION['UID'])){
                 include 'template/logged_menu.php';
 
                 // Retrieve data through session UID
-                $sql = 'SELECT user.userID, user.matricNo, user.userEmail, userprofile.username, userprofile.program, userprofile.mentor, userprofile.motto
+                $sql = 'SELECT user.userID, user.matricNo, user.userEmail, userprofile.username, userprofile.program, userprofile.mentor, userprofile.motto, userprofile.intake_batch, userprofile.img_path
                 FROM user INNER JOIN userprofile ON user.userID = userprofile.userID
                 WHERE user.userID=' . $_SESSION['UID'] . ';';
 
@@ -44,8 +28,10 @@ include 'template/header.php'
                     $userEmail = $row["userEmail"];
                     $username = $row["username"];
                     $program = $row["program"];
+                    $intake = $row["intake_batch"];
                     $mentor = $row["mentor"];
                     $motto = $row["motto"];
+                    $img_path = $row['img_path'];
                 }
             }
             // Else, head to the index.page
@@ -73,12 +59,11 @@ include 'template/header.php'
                         echo'<img class="pfp-img" src="src/img/user_icon.png"/>';
                     
                     }*/
-                    $picpath = getImagePath($matricNo);
-                    if ($picpath !== null){
-                        echo'<img class="pfp-img" src="' . $picpath .'"/>';
+                    if ($img_path == null || $img_path ==""){
+                        echo'<img class="pfp-img" src="src/img/user_icon.png"/>';
                     }
                     else{
-                        echo'<img class="pfp-img" src="src/img/user_icon.png"/>';
+                        echo'<img class="pfp-img" src="uploads/profilepic/'.$img_path.'"/>';
                     }
 
                     ?>
@@ -115,6 +100,10 @@ include 'template/header.php'
                         <tr>
                             <th id="biodata">Program</th>
                             <td id="usercourse" class="profile-data"><?= $program?></td>
+                        </tr>
+                        <tr>
+                            <th id="biodata">Intake Batch</th>
+                            <td id="usercourse" class="profile-data"><?= $intake?></td>
                         </tr>
                         <tr>
                             <th id="biodata">Mentor Name</th>

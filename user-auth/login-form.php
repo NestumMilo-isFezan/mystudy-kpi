@@ -4,11 +4,6 @@ include '../template/header1.php'
 
 <body>
     <div class="main-container">
-        <?php
-            // Primary Header
-            include '../template/titlebar.php';
-
-        ?>
         <div class="action-title">
             <h1>Login Form</h1>
         </div>
@@ -38,7 +33,7 @@ include '../template/header1.php'
                     </div>
 
                     <div class="register-forgot">
-                        <p><a onClick="showRegister()" style="cursor: pointer;">Register</a>
+                        <p><a href="register-form.php" style="cursor: pointer;">Register</a>
                          | <a style="cursor: pointer;">Forgot password?</a></p>
                     </div>
                 </form>

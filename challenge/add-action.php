@@ -24,6 +24,9 @@ if(!isset($_SESSION["UID"])){
 }
 //this block is called when button Submit is clicked
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(isset($_POST['cancelform'])){
+        header("refresh:0;URL=../challenge.php");
+    }
     //values for add or edit
     $sem = $_POST["sem"];
     $year = $_POST["year"];

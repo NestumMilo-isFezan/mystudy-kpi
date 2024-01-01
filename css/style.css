@@ -10,18 +10,17 @@
 }
 
 body{
-    margin: auto;
-    background-color: #292929;
+    margin: auto; background: linear-gradient(to bottom right, #330066, #9900cc, #ff00ff);
 }
 
 .main-container{
     min-height: 100dvh;
+    background: linear-gradient(to bottom left, #00000065, #3333335e);
 
     display: grid;
-    grid-template-rows: 
-        auto
+    grid-template-rows:
         50px
-        1fr
+        auto
         20px;
 }
 
@@ -29,8 +28,18 @@ body{
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: auto;
+    margin: 10px;
     padding: 10px;
+    margin-bottom: 20px;
+}
+.main-content-1{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 15px;
+    padding: 5px;
+    border-radius: .8rem;
+    background-color: #20202094;
 }
 
 /*Scrollbar table*/
@@ -129,8 +138,9 @@ Navbar v2.0 - CSS
 =============================================
 */
 nav{
-    background-color: #333;
+    background-color: #3333339f;
     box-shadow: 3px 3px 5px #00000010;
+    backdrop-filter: blur(5px);
 }
 
 nav ul{
@@ -185,15 +195,19 @@ nav #title{
     font-size: 26px;
 }
 
+nav #active-page{
+    background-color: #1313135a;
+}
+
 .sidebar{
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
     width: 250px;
-    z-index: 999;
-    background-color: #33333330;
-    backdrop-filter: blur(5px);
+    z-index: 1000;
+    background-color: #090909ee;
+    backdrop-filter: blur(10px);
     box-shadow: -10px 0 10px #00000010;
     display: none;
     flex-direction: column;
@@ -205,6 +219,7 @@ nav #title{
     transform: translate(100%, 0);
     transition: all ease-in-out 350ms;
 }
+
 
 .sidebar li{
     width: 100%;
@@ -249,7 +264,7 @@ Profile - CSS
 
     display: grid;
     min-height: 100dvh;
-    width: 100%;
+    width: 90vw;
 
     grid-template-rows:
     auto
@@ -340,17 +355,17 @@ Profile - CSS
 
 /*
 =============================================
-Challenge Table - CSS
+Table - CSS
 =============================================
 */
-.challenge-content table, .challenge-content th, .challenge-content td{
+table, th, td{
     padding: 1rem;
     border-collapse: collapse;
     text-align: left;
 }
 
-.challenge-content{
-    width: 82vw;
+.data-content{
+    width: 90vw;
     height: 90vh;
     background-color: #1b1a1a80;
     backdrop-filter: blur(7px);
@@ -360,11 +375,12 @@ Challenge Table - CSS
     overflow: hidden;
 }
 
-.challenge-content table{
+table{
     width: 100%;
+    font-size: 14px;
 }
 
-.challenge-content .table__header{
+.table__header{
     width: 100%;
     height: 10%;
     background-color: #15151540;
@@ -374,15 +390,55 @@ Challenge Table - CSS
     justify-content: space-between;
 }
 
+.table__search{
+    width: 100%;
+    background-color: #15151540;
+    padding: .8rem 1rem;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
 
-.add-challenges{
+.table__search .searchbar{
+    display: grid;
+    grid-template-columns: 85% 15%;
+    margin: auto;
+    width: 90%;
+    column-gap: 20px;
+}
+
+.table__search input{
+    width: 100%;
+    height: 26px;
+    border-radius: 10px;
+    background-color: #9a9a9a3d;
+    
+    padding: .4rem .4rem;
+}
+
+.table__search button{
+    margin: auto;
+    padding: 10px;
+    width: 80%;
+
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+
+    border-radius: 15px;
+    border: #292929;
+    cursor: pointer;
+    background-color: #0ea7c9;
+}
+
+
+.add-item-button{
     margin-right: 5%;
     padding: 10px;
     height: 50px;
 
     font-family: "Lilita One", sans-serif;
     font-weight: 100;
-    font-size: 18px;
+    font-size: 14px;
 
     border-radius: 15px;
     border: #292929;
@@ -391,7 +447,7 @@ Challenge Table - CSS
 
 }
 
-.challenge-content .table__body{
+.table__body{
     width: 95%;
     max-height: calc(89% - .8rem);
     background-color: #f8b4da60;
@@ -400,14 +456,14 @@ Challenge Table - CSS
     overflow: auto;
 }
 
-.challenge-content thead th{
-    position: sticky;
+thead th{
+    position: static;
     top: 0;
     left: 0;
     background-color: #c90e5c;
 }
 
-.challenge-content tbody tr:nth-child(even){
+tbody tr:nth-child(even){
     background-color: #c8b4ba40;
 }
 .challenge-content tbody tr:hover{
@@ -430,9 +486,88 @@ Challenge Table - CSS
 
 /*
 =============================================
-Responsive Web - width = 900px - CSS
+Manage KPI - CSS
 =============================================
 */
+.kpi-container {
+    display: grid;
+    width: 95vw;
+    min-height: 90vh;
+    grid-template-columns: 20% 80%;
+    border-radius: 25px;
+    box-shadow: 3px 3px 5px #00000010;
+}
+.menubar-container {
+    background-color:#1616166c;
+    margin-right: 5px;
+    border-radius: 25px 5px 5px 25px;
+    padding: 10px;
+    display: block;
+}
+.menubar-container .tabs__button i{
+    display: none;
+}
+.menubar-container .tabs__button span{
+    display: block;
+}
+.menubar-container .tabs__button {
+    padding: 10px;
+    background-color: #19191960;
+    cursor: pointer;
+    margin-bottom: 3px;
+    border: none;
+    width: 100%;
+    height: 50px;
+}
+.menubar-container .tabs__button:first-child{
+    border-radius: 25px 0 0 0;
+}
+.menubar-container .tabs__button:last-child{
+    border-radius: 0 0 0 25px;
+}
+.menubar-container .tabs__button:hover {
+    background-color: #072c564f;
+    color: white;
+    border: 0px;
+}
+.menubar-container .tabs__button:first-child:hover{
+    border-radius: 25px 0 0 0;
+}
+.menubar-container .tabs__button:last-child:hover{
+    border-radius: 0 0 0 25px;
+}
+.menubar-container .tabs__button--active{
+    border-right: 5px solid #c90e5c;
+    background-color: #131313bd;
+    font-weight: bold;
+}.menubar-container .tabs__button--active:hover{
+    border-right: 5px solid #c90e5c;
+    font-weight: bold;
+}
+.tabs__content {
+    background-color: #1313138a;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 5px 25px 25px 5px;
+}
+.tabs__content--active{
+    display: flex;
+}
+
+.actual-content{
+    width: 100%;
+    border-radius: .8rem;
+
+    overflow: hidden;
+}
+
+/*
+=============================================
+Responsive Web - CSS
+=============================================
+*/
+
+
 @media(max-width: 900px){
     /*Sidebar*/
     .hideOnMobile{
@@ -446,14 +581,12 @@ Responsive Web - width = 900px - CSS
 
     /*Profile*/
     .profile-container{
-        margin: 20px 20px;
+        margin: 5px 5px;
         margin-top: 10px;
-        padding: 20px;
-        border-radius: 25px;
+        border-radius: 15px;
     
         display: grid;
-        min-height: 80dvh;
-        width: 100%;
+        width: 80vw;
     
         grid-template-rows:
         0.25fr
@@ -529,8 +662,24 @@ Responsive Web - width = 900px - CSS
     }
 
     /*Table*/
+    table{
+        width: 100%;
+        font-size: 13px;
+    }
     .challenge-content td:not(:first-of-type){
         min-width: 12.1rem;
+    }
+    .table__search button{
+        width: 50px;
+    }
+    .table__header button{
+        width: 50px;
+    }
+    .table__search button b{
+        display: none;
+    }
+    .table__header button b{
+        display: none;
     }
 }
 
@@ -539,8 +688,21 @@ Responsive Web - width = 900px - CSS
     .sidebar{
         width: 100%;
     }
-
+    /* Main Content */
+    .main-content{
+        margin: .3rem .2rem;
+        padding: 0;
+    }
+    .data-content{
+        width: 94vw;
+        height: 90vh;
+    }
+    
     /*Profile Table*/
+    .profile-container{
+        min-height: 70vh;
+        margin-bottom: 10px;
+    }
     .profile-container .pfp-biodata{
         margin: 0;
         padding-top: 5px;
@@ -603,4 +765,176 @@ Responsive Web - width = 900px - CSS
     .primary-header__title p em{
         font-size: 12px;
     }
+
+    /* Data Table */
+    table, th, td{
+        padding: .8rem;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    
+    table{
+        width: 100%;
+        font-size: 11px;
+    }
+    
+    .table__header{
+        width: 100%;
+        height: 10%;
+        padding: .8rem 1rem;
+        display: grid;
+        grid-template-columns: 60% 20%;
+    }
+    .table__header h1{
+        font-size: 20px;
+    }
+    .add-challenges{
+        height: 50px;
+        font-size: 18px;
+    
+        border-radius: 10px;
+    
+    }
+    
+    .table__search{
+        width: 100%;
+        background-color: #15151540;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .table__search .searchbar{
+        display: grid;
+        grid-template-columns: 75% auto;
+        margin: auto;
+        width: 100%;
+        column-gap: 10px;
+    }
+    
+    .table__search input{
+        width: 100%;
+        height: 20px;
+        font-size: 12px;
+        border-radius: 10px;
+        background-color: #9a9a9a3d;
+        
+        padding: .4rem .4rem;
+    }
+    
+    .table__body{
+        width: 95%;
+        max-height: calc(89% - .8rem);
+        background-color: #f8b4da60;
+        margin: .8rem auto;
+        border-radius: .6rem;
+        overflow: auto;
+    }
+    
+    .table__search button{
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .table__header button{
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    /*KPI*/
+    .main-content-1{
+        display: flex;
+        justify-content: stretch;
+        align-content: baseline;
+        width: 92vw;
+        margin: 5px;
+        padding: 10px;
+        border-radius: .8rem;
+        background-color: #20202094;
+    }
+    .kpi-container {
+        display: grid;
+        width: 91vw;
+        min-height: 90vh;
+        border-radius: 25px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 8% 92%;
+        row-gap: 10px;
+        margin-bottom: 10px;
+        box-shadow: 3px 3px 5px #00000010;
+    }
+    .menubar-container {
+        width: 91vw;
+        height: 50px;
+        background-color:#1616166c;
+        margin-right: 0;
+        border-radius: 25px 25px 5px 5px;
+        padding: 5px;
+        display: flex;
+    }
+    .menubar-container .tabs__button i{
+        display: block;
+        font-size: 22px;
+    }
+    .menubar-container .tabs__button span{
+        display: none;
+    }
+    .menubar-container .tabs__button {
+        padding: 10px;
+        background-color: #19191960;
+        cursor: pointer;
+        margin-bottom: 3px;
+        border: none;
+        width: 100%;
+    }
+    .menubar-container .tabs__button:first-child{
+        border-radius: 25px 0 0 0;
+    }
+    .menubar-container .tabs__button:last-child{
+        border-radius: 0 25px 0 0;
+    }
+    .menubar-container .tabs__button:hover {
+        background-color: #072c564f;
+        color: white;
+        border: 0px;
+    }
+    .menubar-container .tabs__button:first-child:hover{
+        border-radius: 25px 0 0 0;
+    }
+    .menubar-container .tabs__button:last-child:hover{
+        border-radius: 0 25px 0 0;
+    }
+    .menubar-container .tabs__button--active{
+        border-bottom: 5px solid #c90e5c;
+        border-right: none;
+        background-color: #131313bd;
+        font-weight: bold;
+    }.menubar-container .tabs__button--active:hover{
+        border-bottom: 5px solid #c90e5c;
+        border-right: none;
+        font-weight: bold;
+    }
+
+    .tabs__content {
+        background-color: #1313138a;
+        padding: 10px;
+        border-radius: 5px 5px 25px 25px;
+        min-height: 94vh;
+    }
+    .tabs__content--active{
+        display: flex;
+    }
+    
+    .actual-content{
+        width: 100%;
+        border-radius: .8rem;
+    
+        overflow: hidden;
+    }
+    .author-footer p{
+        font-size: 10px;
+    }
+    
+
 }

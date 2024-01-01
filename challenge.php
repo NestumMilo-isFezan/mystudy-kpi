@@ -7,9 +7,6 @@ include 'template/header.php'
 <body>
     <div class="main-container">
         <?php
-            // Primary Header
-            include 'template/titlebar.php';
-
             // Menubar or Navbar
             if (isset($_SESSION['UID'])){
                 include 'template/logged_menu.php';
@@ -20,13 +17,20 @@ include 'template/header.php'
         ?>
 
         <main class="main-content">
-            <div class="challenge-content">
+            <div class="data-content">
             <section class="table__header">
                 <h1>List of Challenges and Plans</h1>
-                <button class="add-challenges" onclick="location.href = 'challenge/add-form.php';"><i class='bx bx-plus'></i>&nbsp; Add Challenges</button>
+                <button class="add-item-button" onclick="location.href = 'challenge/add-form.php';"><i class='bx bx-plus'></i><b>&nbsp; Add Challenges</b></button>
+            </section>
+
+            <section class="table__search">
+                <form action="" method="post" class="searchbar">
+                    <input type="text" placeholder="Search.." name="search" id="keyword">
+                    <button id="search-data"><i class='bx bx-search-alt-2' ></i><b>&nbsp;Search</b></button>
+                </form>
             </section>
                 
-            <section class="table__body">
+            <section class="table__body" id="container">
                 <table>
                     <thead>
                         <tr>
@@ -74,6 +78,7 @@ include 'template/header.php'
                     </tbody>
                 </table>
             </section>
+            <script src="script/challenge-search-script.js"></script>
             </div>
         </main>
 

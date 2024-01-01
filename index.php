@@ -6,9 +6,6 @@ include 'template/header.php'
 <body>
     <div class="main-container">
         <?php
-            // Primary Header
-            include 'template/titlebar.php';
-
             // Menubar or Navbar
             if (isset($_SESSION['UID'])){
                 include 'template/logged_menu.php';

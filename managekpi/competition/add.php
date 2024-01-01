@@ -1,21 +1,21 @@
 <?php
-include '../template/header1.php';
-include('../config/config.php');
+$pagetitle = 'Add Competition';
+include '../../template/header-kpi.php';
+include('../../config/config.php');
 if(!isset($_SESSION["UID"])){
     header("location:../index.php"); 
 }
 ?>
-
 <body>
     <div class="main-container">
         <div class="action-title">
-            <h1>Add Challenge and Plan</h1>
+            <h1>Add Competition</h1>
             <p class="indicate"><em>Required field with mark</em></p>
         </div>
 
         <main class="main-content">
-            <div class="challenge-container">
-                <form action="add-action.php" method="post" class=challenge-form enctype="multipart/form-data">
+            <div class="form-container">
+                <form action="add-action.php" method="post" class=kpi-form enctype="multipart/form-data">
                     <div class="merge-formsection">
                         <div class="formsection1">
                             <label for="sem"><p class="indicate"><b>Sem</b></p></label>
@@ -47,45 +47,33 @@ if(!isset($_SESSION["UID"])){
                     </div>
 
                     <div class="formsection">
-                        <label for="challenge"><p class="indicate"><b>Challenge</b></p></label>
-                        <textarea rows="4" name="challenge" required></textarea>
+                        <label for="level"><p class="indicate"><b>Level</b></p></label>
+                        <select size="1" id="level" name="level" style="width:100%;" required>
+                            <option value="">&nbsp;</option>
+                            <option value="Faculty">Faculty</option>;
+                            <option value="University">University</option>;
+                            <option value="National">National</option>;
+                            <option value="International">International</option>;
+                        </select>
                     </div>
+
                     <div class="formsection">
-                        <label for="plan"><p class="indicate"><b>Plan</b></p></label>
-                        <textarea rows="4" name="plan" required></textarea>
+                        <label for="competition"><p class="indicate"><b>Competition Name</b></p></label>
+                        <input type="text" name="competition" required></textarea>
                     </div>
+
                     <div class="formsection">
-                        <label for="remark"><p class="indicate"><b>Remark</b></p></label>
-                        <textarea rows="4" name="remark" required></textarea>
-                    </div>
-                    <div class="formsection">
-                        <p><b>Upload Image (If you want)</b></p>
-                        <input name="fileToUpload" id="fileToUpload" type="file" accept="image/png, image/jpeg"/>
-                        <img id="filepreview" src="../src/img/add-file.png">
-                        <label for="fileToUpload" class="browse-button" id="browsebutton">Select Image</label>
+                        <label for="remark"><p><b>Remark</b></p></label>
+                        <textarea rows="4" name="remark"></textarea>
                     </div>
 
                     <div class="yesno-update">
                         <button type="submit" name="submit" class="update-button"><i class='bx bxs-check-circle'></i></button>
-                        <button name="cancelform" class="cancel-button" onClick="window.location.href='../challenge.php';"><i class='bx bxs-x-circle'></i></button>
+                        <button name="cancelform" class="cancel-button" onClick="window.location.href='../../challenge.php';"><i class='bx bxs-x-circle'></i></button>
                     </div>
                 </form>
             </div>
-            <script type="text/javascript">
-                    var imageInput = document.getElementById("fileToUpload");
-                    var previewImage = document.getElementById("filepreview");
-
-                    imageInput.addEventListener("change", function(event){
-                        if(event.target.files.length == 0){
-                            return;
-                        }
-
-                        var tempUrl = URL.createObjectURL(event.target.files[0]);
-                        previewImage.setAttribute("src", tempUrl);
-                    });
-                </script>
         </main>
-
         <footer class="author-footer">
             <p>Copyright @2023 FCI - Hak milik Nurahfezan</p>
         </footer>

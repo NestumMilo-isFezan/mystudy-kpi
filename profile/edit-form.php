@@ -7,13 +7,10 @@ include('../config/config.php');
 <body>
     <div class="main-container">
         <?php
-            // Primary Header
-            include '../template/titlebar1.php';
-            
             // Check if the seesion is running,
             if (isset($_SESSION['UID'])){
                 // Retrieve data through session UID
-                $sql = 'SELECT user.userID, user.matricNo, user.userEmail, userprofile.username, userprofile.program, userprofile.mentor, userprofile.motto
+                $sql = 'SELECT user.userID, user.matricNo, user.userEmail, userprofile.username, userprofile.program, userprofile.mentor, userprofile.motto, userprofile.intake_batch, userprofile.img_path
                 FROM user INNER JOIN userprofile ON user.userID = userprofile.userID
                 WHERE user.userID=' . $_SESSION['UID'] . ';';
 
@@ -26,8 +23,10 @@ include('../config/config.php');
                     $userEmail = $row["userEmail"];
                     $username = $row["username"];
                     $program = $row["program"];
+                    $intake = $row["intake_batch"];
                     $mentor = $row["mentor"];
                     $motto = $row["motto"];
+                    $img_path = $row["img_path"];
                 }
             }
             // Else, head to the index.page
@@ -49,16 +48,12 @@ include('../config/config.php');
                         <input name="selectimg" id="selectimg" type="file" accept="image/png, image/jpeg"/>
                             <?php 
                                 $uploadpath = '../uploads/profilepic/';
-                                $userpfpath = $uploadpath . $matricNo . '.png';
-                                $userpfpath1 = $uploadpath . $matricNo . '.jpg';
-                                if (file_exists($userpfpath)) {
-                                    echo '<img id="imgpreview" src="'. $userpfpath .'">';
-                                }
-                                else if (file_exists($userpfpath1)) {
-                                    echo '<img id="imgpreview" src="'. $userpfpath1 .'">';
+                                $userpfpath = $uploadpath . $img_path;
+                                if ($img_path == null || $img_path =="") {
+                                    echo '<img id="imgpreview" src="../src/img/user_icon.png">';
                                 }
                                 else {
-                                    echo '<img id="imgpreview" src="../src/img/user_icon.png">';
+                                    echo '<img id="imgpreview" src="'. $userpfpath .'">';
                                 }
                             ?>    
                 
@@ -104,12 +99,12 @@ include('../config/config.php');
                         <div class="merge-formsection">
                             <div class="formsection1">
                                 <label for="matricno"><b>Matric No</b></label>
-                                <input type="text" value=<?= $matricNo ?> name="matricNo" id="matricNo" style="text-transform: uppercase;" readonly/>
+                                <input type="text" value=<?= $matricNo ?> name="matricNo" id="matricNo" style="text-transform: uppercase;" readonly class="matricno"/>
                             </div>
                             <div class="formsection1">
                                 <label for="program"><b>Course Programme</b></label>
 
-                                <select size="1" name="program">
+                                <select size="1" name="program" required>
                                     <option value="" <?php echo ($program == '') ? 'selected' : ''; ?> disabled >Select Program</option>   
                                     <option <?php echo ($program == 'Software Engineering') ? 'selected' : ''; ?>>Software Engineering</option>
                                     <option <?php echo ($program == 'Network Engineering') ? 'selected' : ''; ?>>Network Engineering</option>
@@ -120,7 +115,11 @@ include('../config/config.php');
                         </div>
                         <div class="formsection">
                             <label for="username"><b>Name</b></label>
-                            <input type="text" name="username" value="<?=$username?>">
+                            <input type="text" name="username" value="<?=$username?>" required>
+                        </div>
+                        <div class="formsection">
+                            <label for="intake"><b>Intake batch</b></label>
+                            <input type="text" name="intake" value="<?=$intake?>">
                         </div>
                         
                         <div class="formsection">
@@ -130,7 +129,7 @@ include('../config/config.php');
 
                         <div class="formsection">
                             <label for="mentor"><b>Mentor Name</b></label>
-                            <input type="text" name="mentor" value="<?=$mentor?>">
+                            <input type="text" name="mentor" value="<?=$mentor?>" required>
                         </div>
 
                         <div class="formsection">
@@ -139,7 +138,7 @@ include('../config/config.php');
                         </div>
                         <div class="yesno-update">
                             <button type="submit" name="submitimg" class="update-button"><i class='bx bxs-check-circle'></i></button>
-                            <button name="cancelform" class="cancel-button" onclick=""><i class='bx bxs-x-circle'></i></button>
+                            <button name="cancelform" class="cancel-button" onClick="window.location.href='../profile.php';"><i class='bx bxs-x-circle'></i></button>
                         </div>
                     </form>
                 </div>

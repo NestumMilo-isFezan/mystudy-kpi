@@ -22,11 +22,22 @@ if (mysqli_num_rows($result) == 1){
         $_SESSION['UID'] = $row['userID'];
         $_SESSION['matricNo'] = $row['matricNo'];
         $_SESSION['loggedin_time'] = time();
-        echo'
-        <img class="status-icon" src="../src/img/success.png"/>
-        <h1 class="status"><b>Login Success</b></h1>
-        <p class="description">Moving into the system in 3 seconds.<br>';
-        header("refresh:3;URL=../index.php");
+
+        $sql = "SELECT username, intake_batch FROM userprofile WHERE userID =" . $row['userID'];
+        $result = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $_SESSION['username'] = $row["username"];
+                    $_SESSION['intake'] = $row["intake_batch"];
+
+                    echo'
+                        <img class="status-icon" src="../src/img/success.png"/>
+                        <h1 class="status"><b>Login Success.</b><br>Welcome, '.$_SESSION['username'].'</h1>
+                        <p class="description">Moving into the system in 3 seconds.<br>';
+                        header("refresh:3;URL=../index.php");
+                }
+        
     }
     else{
         echo '
